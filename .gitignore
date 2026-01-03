@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+.env
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Visual Studio / IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build / dist folders
+dist/
+build/
+*.exe
+*.dll
+
+# Sensitive files
+secret*.json
+config.local.json
+
+
+
+#SQL Lite file
+vector_db/
+*.sqlite3
