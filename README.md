@@ -1,4 +1,4 @@
-# Customer Service Lookup
+# Course Lookup using RAG
 
 A course advisor assistant that uses vector search and AI to recommend Udemy courses based on user queries.
 
