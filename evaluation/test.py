@@ -15,10 +15,12 @@ class TestQuestion(BaseModel):
 
 
 def load_tests() -> list[TestQuestion]:
-    """Load test questions from JSONL file."""
+    """Load test questions from JSON Lines file."""
     tests = []
     with open(TEST_FILE, "r", encoding="utf-8") as f:
         for line in f:
-            data = json.loads(line.strip())
-            tests.append(TestQuestion(**data))
+            line = line.strip()
+            if line:
+                data = json.loads(line)
+                tests.append(TestQuestion(**data))
     return tests

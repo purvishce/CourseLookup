@@ -24,50 +24,44 @@ def create_chunks(course: CourseRecord) -> list[dict]:
     metadata = build_metadata(course)
     chunks = []
 
-    # -------- Overview Chunk --------
-    overview_text = f"""
-                    [COURSE OVERVIEW]
+    # Build a simple set of keyword tags from title, instructor and description
+    import re
+
+    def tokens_from(text: str, limit: int = 50) -> list[str]:
+        words = re.findall(r"[A-Za-z0-9]+", text.lower())
+        words = [w for w in words if len(w) > 2]
+        seen = []
+        for w in words:
+            if w not in seen:
+                seen.append(w)
+            if len(seen) >= limit:
+                break
+        return seen
+
+    title_tokens = tokens_from(course.title)
+    instr_tokens = tokens_from(course.instructor)
+    desc_tokens = tokens_from(course.description or "")
+
+    tags = list(dict.fromkeys(title_tokens + instr_tokens + desc_tokens))
+
+    # -------- Combined Chunk --------
+    combined_text = f"""
                     Title: {course.title}
                     Instructor: {course.instructor}
+                    Instructor: {course.instructor} courses
+                    Instructor: {course.instructor} Udemy
                     Level: {course.level}
-                    Rating: {course.rating} out of 5 based on {course.reviewcount} reviews
+                    Rating: {course.rating}
+                    ReviewCount: {course.reviewcount}
                     Duration: {course.duration}
                     Lectures: {course.lectures}
+                    Description: {course.description}
                     """.strip()
 
     chunks.append({
-        "text": overview_text,
-        "metadata": {**metadata, "chunk_type": "overview"}
+        "text": combined_text,
+        "metadata": {**metadata, "chunk_type": "combined", "tags": ",".join(tags)}
     })
-
-    # -------- Description Chunk --------
-    description_text = f"""
-                    [COURSE DESCRIPTION]
-                    {course.description}
-                    """.strip()
-
-    if len(course.description) > 0:
-        chunks.append({
-            "text": description_text,
-            "metadata": {**metadata, "chunk_type": "description"}
-        })
-        
-     # -------- Metadata-only Chunk --------
-    metadata_text = f"""
-                [COURSE METADATA]
-                Title: {course.title}
-                Instructor: {course.instructor}
-                Level: {course.level}
-                Rating: {course.rating}
-                ReviewCount: {course.reviewcount}
-                Duration: {course.duration}
-                Lectures: {course.lectures}
-                """.strip()
-    chunks.append({
-        "text": metadata_text,
-        "metadata": {**metadata, "chunk_type": "metadata"}
-    })
-    print(chunks)
 
     return chunks
 """
@@ -123,7 +117,7 @@ def create_chunks1(email):
 """
 
 
-def embed_texts(texts, EMBEDDING_MODEL="text-embedding-3-large"):
+def embed_texts(texts, EMBEDDING_MODEL="text-embedding-3-small"):
     """
     Generate embeddings for a list of texts
     """

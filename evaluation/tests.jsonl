@@ -1,152 +1,30 @@
-[
-  {
-    "question": "Which Apple product was reported to have battery draining quickly overnight?",
-    "keywords": ["battery", "overnight", "draining", "iPhone 15 Pro"],
-    "reference_answer": "The iPhone 15 Pro was reported to have battery draining quickly overnight.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What troubleshooting steps were recommended to fix Face ID issues on the iPhone 15 Pro?",
-    "keywords": ["Face ID", "reset", "TrueDepth camera", "restart"],
-    "reference_answer": "Apple Support recommended resetting Face ID, cleaning the TrueDepth camera, and restarting the iPhone.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which product experienced loud fan noise according to customer emails?",
-    "keywords": ["fan noise", "loud", "MacBook Pro"],
-    "reference_answer": "Customers reported loud fan noise on the MacBook Pro 16-inch (2021).",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What steps were taken to resolve high CPU usage causing MacBook fan issues?",
-    "keywords": ["SMC reset", "Activity Monitor", "macOS update"],
-    "reference_answer": "Apple Support advised resetting the SMC, checking Activity Monitor for high CPU processes, and updating macOS.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which Apple device had issues with Wi-Fi disconnections?",
-    "keywords": ["Wi-Fi", "disconnects", "iPad Air"],
-    "reference_answer": "The iPad Air 5 experienced frequent Wi-Fi disconnections.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "How did Apple Support address Wi-Fi connectivity problems on iPad Air 5?",
-    "keywords": ["forget network", "reset network settings", "iPadOS"],
-    "reference_answer": "The customer was instructed to forget the Wi-Fi network, reset network settings, and update iPadOS.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which accessory had charging issues in customer complaints?",
-    "keywords": ["AirPods", "charging", "left earbud"],
-    "reference_answer": "Customers reported that the left AirPod of AirPods Pro 2 was not charging properly.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What resolution steps were provided for AirPods Pro charging problems?",
-    "keywords": ["clean contacts", "reset AirPods", "firmware"],
-    "reference_answer": "Apple Support recommended cleaning the charging contacts, resetting the AirPods, and updating the firmware.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which Apple Watch issue was related to pairing failures?",
-    "keywords": ["Apple Watch", "pairing", "iPhone"],
-    "reference_answer": "Apple Watch Series 9 users reported issues pairing the watch with their iPhone.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What steps were suggested to fix Apple Watch pairing issues?",
-    "keywords": ["restart devices", "reset network settings", "re-pair"],
-    "reference_answer": "Apple Support advised restarting both devices, resetting network settings, and re-pairing the Apple Watch.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which product experienced camera app crashes?",
-    "keywords": ["camera app", "crashes", "iPhone"],
-    "reference_answer": "The iPhone 15 Pro experienced camera app crashes according to customer emails.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "How did Apple Support resolve camera app crashes on iPhone?",
-    "keywords": ["force close", "iOS update", "camera settings"],
-    "reference_answer": "Support instructed customers to force close the app, reinstall the iOS update, and reset camera settings.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which issue caused MacBook batteries to stop charging above 80 percent?",
-    "keywords": ["battery", "80%", "MacBook"],
-    "reference_answer": "MacBook Pro users reported that the battery would not charge beyond 80 percent.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What explanation and fix were provided for MacBook battery charging limits?",
-    "keywords": ["battery calibration", "charger check", "macOS"],
-    "reference_answer": "Apple Support explained optimized charging behavior and advised battery calibration, charger checks, and macOS updates.",
-    "category": "procedural"
-  },
-  {
-    "question": "Which product had noise cancellation issues?",
-    "keywords": ["noise cancellation", "AirPods"],
-    "reference_answer": "Noise cancellation issues were reported with AirPods Pro 2.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What troubleshooting steps were recommended for AirPods noise cancellation problems?",
-    "keywords": ["reset AirPods", "firmware", "settings toggle"],
-    "reference_answer": "Apple Support recommended resetting the AirPods, verifying firmware updates, and toggling noise cancellation settings.",
-    "category": "procedural"
-  },
-  {
-    "question": "What sentiment did customers commonly express when reporting Apple product issues?",
-    "keywords": ["frustrated", "angry", "concerned"],
-    "reference_answer": "Customers frequently expressed frustration, concern, or disappointment when reporting Apple product issues.",
-    "category": "sentiment_analysis"
-  },
-  {
-    "question": "Which country-based customers appeared frequently in the email dataset?",
-    "keywords": ["US", "UK", "Germany", "India"],
-    "reference_answer": "Customers from the US, UK, Germany, India, and other regions appeared frequently in the dataset.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What typically happened after customers followed Apple Support troubleshooting steps?",
-    "keywords": ["resolved", "improved", "follow-up"],
-    "reference_answer": "In most cases, customers reported that the issue was resolved or significantly improved after following the steps.",
-    "category": "reasoning"
-  },
-  {
-    "question": "Which category did Apple Watch pairing issues fall under?",
-    "keywords": ["connectivity", "Apple Watch"],
-    "reference_answer": "Apple Watch pairing issues were categorized under Connectivity Issue.",
-    "category": "classification"
-  },
-  {
-    "question": "What category was assigned to AirPods charging problems?",
-    "keywords": ["Accessory Issue", "AirPods"],
-    "reference_answer": "AirPods charging problems were classified as an Accessory Issue.",
-    "category": "classification"
-  },
-  {
-    "question": "What common resolution method was shared across multiple Apple products?",
-    "keywords": ["software update", "reset", "restart"],
-    "reference_answer": "Resetting the device, restarting it, and installing the latest software updates were common resolution steps across products.",
-    "category": "reasoning"
-  },
-  {
-    "question": "What usually triggered escalation in Apple support email threads?",
-    "keywords": ["issue persists", "still present", "escalated"],
-    "reference_answer": "Escalation usually occurred when the customer reported that the issue was still present after initial troubleshooting.",
-    "category": "reasoning"
-  },
-  {
-    "question": "Who typically sent the final resolution update in the email threads?",
-    "keywords": ["Apple Support", "agent", "resolution update"],
-    "reference_answer": "The final resolution update was typically sent by the assigned Apple Support agent.",
-    "category": "direct_fact"
-  },
-  {
-    "question": "What type of issue was most commonly resolved without store visits?",
-    "keywords": ["software", "reset", "remote"],
-    "reference_answer": "Software and configuration-related issues were most commonly resolved remotely without requiring store visits.",
-    "category": "reasoning"
-  }
-]
+{"question": "What are the best Python courses on Udemy?", "keywords": ["Python", "bootcamp", "Jose Portilla"], "reference_answer": "The Complete Python Bootcamp From Zero to Hero in Python by Jose Portilla is highly rated with 4.6 stars and over 486,000 reviews.", "category": "course_recommendation"}
+{"question": "Recommend a web development course", "keywords": ["web development", "HTML", "CSS", "JavaScript"], "reference_answer": "The Complete 2023 Web Development Bootcamp by Dr. Angela Yu covers HTML, CSS, JavaScript, Node, React, PostgreSQL, and more.", "category": "course_recommendation"}
+{"question": "Is there a React course?", "keywords": ["React", "JavaScript"], "reference_answer": "Yes, React - The Complete Guide 2023 by Maximilian Schwarzmüller teaches React, Hooks, Redux, and more.", "category": "course_search"}
+{"question": "What machine learning courses are available?", "keywords": ["machine learning", "AI", "Python"], "reference_answer": "Machine Learning A-Z™ by Kirill Eremenko and Hadelin de Ponteves covers ML algorithms in Python and R.", "category": "course_search"}
+{"question": "Courses by Dr. Angela Yu", "keywords": ["Angela Yu", "Python", "web development"], "reference_answer": "Dr. Angela Yu teaches The Complete 2023 Web Development Bootcamp and 100 Days of Code: The Complete Python Pro Bootcamp.", "category": "instructor_search"}
+{"question": "Best JavaScript course", "keywords": ["JavaScript", "Jonas Schmedtmann"], "reference_answer": "The Complete JavaScript Course 2024: From Zero to Expert! by Jonas Schmedtmann is highly rated.", "category": "course_recommendation"}
+{"question": "Learn data science", "keywords": ["data science", "Python", "machine learning"], "reference_answer": "The Data Science Course: Complete Data Science Bootcamp 2023 covers mathematics, statistics, Python, and more.", "category": "course_search"}
+{"question": "Automate tasks with Python", "keywords": ["Python", "automation", "Al Sweigart"], "reference_answer": "Automate the Boring Stuff with Python Programming by Al Sweigart teaches practical Python for productivity.", "category": "course_recommendation"}
+{"question": "Best course for learning Java", "keywords": ["Java", "Tim Buchalka"], "reference_answer": "Java 17 Masterclass: Start Coding in 2023 by Tim Buchalka is highly rated with 4.6 stars.", "category": "course_recommendation"}
+{"question": "Courses on Angular", "keywords": ["Angular", "Maximilian Schwarzmüller"], "reference_answer": "Angular - The Complete Guide (2023 Edition) by Maximilian Schwarzmüller teaches Angular.", "category": "course_search"}
+{"question": "Learn Unity game development", "keywords": ["Unity", "C#", "GameDev.tv"], "reference_answer": "Complete C# Unity Game Developer 2D by GameDev.tv Team teaches Unity in C#.", "category": "course_recommendation"}
+{"question": "Best MySQL course", "keywords": ["MySQL", "SQL", "Colt Steele"], "reference_answer": "The Ultimate MySQL Bootcamp by Colt Steele is for beginners.", "category": "course_recommendation"}
+{"question": "Courses by Colt Steele", "keywords": ["Colt Steele", "web development"], "reference_answer": "Colt Steele teaches The Web Developer Bootcamp 2023 and The Ultimate MySQL Bootcamp.", "category": "instructor_search"}
+{"question": "Learn iOS development", "keywords": ["iOS", "Swift", "Angela Yu"], "reference_answer": "iOS & Swift - The Complete iOS App Development Bootcamp by Dr. Angela Yu.", "category": "course_recommendation"}
+{"question": "Data science with Python", "keywords": ["data science", "Python", "Jose Portilla"], "reference_answer": "Python for Data Science and Machine Learning Bootcamp by Jose Portilla.", "category": "course_search"}
+{"question": "Best HTML and CSS course", "keywords": ["HTML", "CSS", "Jonas Schmedtmann"], "reference_answer": "Build Responsive Real-World Websites with HTML and CSS by Jonas Schmedtmann.", "category": "course_recommendation"}
+{"question": "Courses on Selenium", "keywords": ["Selenium", "Java", "Rahul Shetty"], "reference_answer": "Selenium WebDriver with Java -Basics to Advanced+Frameworks by Rahul Shetty.", "category": "course_search"}
+{"question": "Learn Flutter", "keywords": ["Flutter", "Dart", "Maximilian Schwarzmüller"], "reference_answer": "Flutter & Dart - The Complete Guide [2023 Edition] by Maximilian Schwarzmüller.", "category": "course_recommendation"}
+{"question": "Best course for beginners in Python", "keywords": ["Python", "beginner", "Tim Buchalka"], "reference_answer": "Learn Python Programming Masterclass by Tim Buchalka.", "category": "course_recommendation"}
+{"question": "Courses on React with Redux", "keywords": ["React", "Redux", "Stephen Grider"], "reference_answer": "Modern React with Redux [2023 Update] by Stephen Grider.", "category": "course_search"}
+{"question": "Learn Spring Boot", "keywords": ["Spring", "Java", "Chad Darby"], "reference_answer": "[NEW] Spring Boot 3, Spring 6 & Hibernate for Beginners by Chad Darby.", "category": "course_recommendation"}
+{"question": "Best Unreal Engine course", "keywords": ["Unreal Engine", "C++", "Ben Tristem"], "reference_answer": "Unreal Engine 5 C++ Developer: Learn C++ & Make Video Games by Ben Tristem.", "category": "course_recommendation"}
+{"question": "Courses by 365 Careers", "keywords": ["365 Careers", "data science"], "reference_answer": "The Data Science Course: Complete Data Science Bootcamp 2023 by 365 Careers.", "category": "instructor_search"}
+{"question": "Learn Node.js", "keywords": ["Node.js", "JavaScript", "Andrew Mead"], "reference_answer": "The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Percival.", "category": "course_recommendation"}
+{"question": "Best course for learning C#", "keywords": ["C#", "Mosh Hamedani"], "reference_answer": "C# Basics for Beginners: Learn C# Fundamentals by Coding by Mosh Hamedani.", "category": "course_recommendation"}
+{"question": "Courses on machine learning with Python", "keywords": ["machine learning", "Python", "Kirill Eremenko"], "reference_answer": "Machine Learning A-Z™ by Kirill Eremenko covers Python.", "category": "course_search"}
+{"question": "Learn web development from scratch", "keywords": ["web development", "Rob Percival"], "reference_answer": "The Complete Web Developer Course 3.0 by Rob Percival.", "category": "course_recommendation"}
+{"question": "Best course for advanced JavaScript", "keywords": ["JavaScript", "advanced", "Jonas Schmedtmann"], "reference_answer": "The Complete JavaScript Course 2024 by Jonas Schmedtmann.", "category": "course_recommendation"}
+{"question": "Courses by Maximilian Schwarzmüller", "keywords": ["Maximilian Schwarzmüller", "React", "Angular"], "reference_answer": "Maximilian Schwarzmüller teaches React - The Complete Guide and Angular - The Complete Guide.", "category": "instructor_search"}
+{"question": "Learn game development with Unity", "keywords": ["Unity", "game development", "GameDev.tv"], "reference_answer": "Complete C# Unity Game Developer 2D by GameDev.tv.", "category": "course_recommendation"}

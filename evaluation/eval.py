@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 import math
 from pydantic import BaseModel, Field
 from litellm import completion
@@ -6,6 +7,8 @@ from dotenv import load_dotenv
 
 from evaluation.test import TestQuestion, load_tests
 from implementation.answer import answer_question, fetch_context
+import json
+import os
 
 
 load_dotenv(override=True)
@@ -91,12 +94,36 @@ def evaluate_retrieval(test: TestQuestion, k: int = 10) -> RetrievalEval:
     # Retrieve documents using shared answer module
     retrieved_docs = fetch_context(test.question)
 
+    # Diagnostics: record which keywords are missing and top retrieved docs
+    try:
+        diag_dir = Path(__file__).resolve().parent / "diagnostics"
+        os.makedirs(diag_dir, exist_ok=True)
+        diag_file = diag_dir / "retrieval_diagnostics.jsonl"
+        missing = [kw for kw in test.keywords if all(kw.lower() not in d.page_content.lower() for d in retrieved_docs)]
+        top_docs = []
+        for idx, d in enumerate(retrieved_docs[:30], start=1):
+            top_docs.append({
+                "rank": idx,
+                "metadata": d.metadata if hasattr(d, "metadata") else {},
+                "snippet": d.page_content[:300]
+            })
+        diag = {
+            "question": test.question,
+            "keywords": test.keywords,
+            "missing_keywords": missing,
+            "top_docs": top_docs
+        }
+        with open(diag_file, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(diag, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
     # Calculate MRR (average across all keywords)
     mrr_scores = [calculate_mrr(keyword, retrieved_docs) for keyword in test.keywords]
     avg_mrr = sum(mrr_scores) / len(mrr_scores) if mrr_scores else 0.0
 
     # Calculate nDCG (average across all keywords)
-    ndcg_scores = [calculate_ndcg(keyword, retrieved_docs, k) for keyword in test.keywords]
+    ndcg_scores = [calculate_ndcg(keyword, retrieved_docs, k=30) for keyword in test.keywords]
     avg_ndcg = sum(ndcg_scores) / len(ndcg_scores) if ndcg_scores else 0.0
 
     # Calculate keyword coverage
@@ -130,7 +157,7 @@ def evaluate_answer(test: TestQuestion) -> tuple[AnswerEval, str, list]:
     judge_messages = [
         {
             "role": "system",
-            "content": "You are an expert evaluator assessing the quality of answers. Evaluate the generated answer by comparing it to the reference answer. Only give 5/5 scores for perfect answers.",
+            "content": "You are an expert evaluator assessing the quality of answers. Evaluate the generated answer by comparing it to the reference answer. Provide fair and balanced scores.",
         },
         {
             "role": "user",
@@ -144,11 +171,11 @@ Reference Answer:
 {test.reference_answer}
 
 Please evaluate the generated answer on three dimensions:
-1. Accuracy: How factually correct is it compared to the reference answer? Only give 5/5 scores for perfect answers.
+1. Accuracy: How factually correct is it compared to the reference answer?
 2. Completeness: How thoroughly does it address all aspects of the question, covering all the information from the reference answer?
 3. Relevance: How well does it directly answer the specific question asked, giving no additional information?
 
-Provide detailed feedback and scores from 1 (very poor) to 5 (ideal) for each dimension. If the answer is wrong, then the accuracy score must be 1.""",
+Provide detailed feedback and scores from 1 (very poor) to 5 (excellent) for each dimension.""",
         },
     ]
 

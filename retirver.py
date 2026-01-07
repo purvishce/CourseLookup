@@ -94,7 +94,7 @@ def extract_filters_from_query(query: str):
 # -------------------------
 # Retriever with optional metadata filters
 # -------------------------
-def retrieve_courses(query: str, top_k=5):
+def retrieve_courses(query: str, top_k=15):
     """
     Retrieve relevant courses from vectorstore
     """
